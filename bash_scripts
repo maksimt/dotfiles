@@ -1,0 +1,14 @@
+function mhz {
+	watch -n 1 "cat /proc/cpuinfo | grep 'cpu MHz' | awk '{ print \$4 }' | sort -r"
+}
+
+function temps {
+	watch -n 1 "sensors | grep 'Core' | awk '{ print \$3 }' | sort -r"
+}
+
+function set_ht {
+	for core in {16..31};
+	do
+		echo $1 > /sys/devices/system/cpu/cpu$core/online;
+	done
+}
