@@ -2,8 +2,8 @@
 shopt -s histappend
 set -o vi
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000000
-HISTFILESIZE=2000000
+HISTSIZE=no
+HISTFILESIZE=no
 
 #brew install bash-git-prompt
 GIT_PROMPT_ONLY_IN_REPO=1
@@ -82,7 +82,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alLt'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -97,3 +97,19 @@ alias gs="git status"
 alias gd="git diff"
 alias gl="git log"
 alias gh="git show" 
+alias tmuxnew="tmux new-session -t"
+alias tmuxd="tmux detach"
+alias tmuxa="tmux -CC attach -t"
+
+alias go='/usr/local/go/bin/go'
+alias gofmt='/usr/local/go/bin/gofmt'
+export GOROOT='/usr/local/go'
+
+alias stat="stat -x"
+alias dc='docker-compose'
+
+function note() {
+text=$@
+datev=$(date +%Y%m%d)
+echo "${datev} ${text}" >> ~/notes.txt
+}

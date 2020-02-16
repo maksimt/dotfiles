@@ -12,3 +12,7 @@ function set_ht {
 		echo $1 > /sys/devices/system/cpu/cpu$core/online;
 	done
 }
+
+function uniq_prefixes {
+    ls | python -c "import fileinput;  print(set( [inp.split('$1')[0] for inp in fileinput.input()]))"
+}

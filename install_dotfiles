@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-rm ~/.profile
+rm -f ~/.profile
 ln -s $(pwd)/.profile ~/.profile
